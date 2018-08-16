@@ -33,7 +33,7 @@ public class Search extends Thread{
     
     @Override
     public void run(){
-        for (int i=start;i<=end;i++){
+        for (int i=start;i<end;i++){
             checkedListsCount++;
             if (skds.isInBlackListServer(i, host)){
                 blackList.add(i);

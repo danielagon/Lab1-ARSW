@@ -38,13 +38,12 @@ public class HostBlackListsValidator {
         
         HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
         
-        int division = skds.getRegisteredServersCount()/N;
-        
+        int division = skds.getRegisteredServersCount()/ N;
         for (int i=0;i<N;i++){
             if (i == N-1){
-                threadList.add(new Search(i*division,division+(skds.getRegisteredServersCount() % N),ipaddress));
+                threadList.add(new Search(i*division,(i*division)+division+(skds.getRegisteredServersCount()%N),ipaddress));
             }else{
-                threadList.add(new Search(i*division,division,ipaddress));
+                threadList.add(new Search(i*division,(i*division)+division,ipaddress));
             }
         }
         
